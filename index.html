@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        <title>Mukul.dev</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Mukul</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#experience" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Mukul</span><br>Software Developer</h1>
+
+                    <a href="#contact" class="button">Contact</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/mukul-sai" target="_blank" class="home__social-icon"><i class='bx bxl-linkedin' title="linkedin"></i></a>
+                    <a href="mailto:pendem.mu@northeastern.edu" target="_blank" class="home__social-icon"><i class='bx bx-envelope' title="email"></i></a>
+                    <a href="https://github.com/MukulSaiPendem" class="home__social-icon"><i class='bx bxl-github' title="github"></i></a>
+                    <a href="./assets/Mukul_Sai_Pendem_Resume.pdf" download="Mukul_Sai_Pendem_Resume.pdf" class="home__social-icon" title="Download Resume">
+                        <i class='bx bx-download'></i>
+                    </a>
+                </div>
+
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="50" y="85" width="400" height="400" href="assets/img/prefil.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">A Little About Me</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/about.png" alt="">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">Hey, I'm Mukul</h2>
+                        <p class="about__text">
+                            A full-stack developer who loves turning ideas into sleek, efficient apps. With a Master’s in Information Systems 
+                            (in progress) and a B.Tech in Electronics & Communication, I’ve built everything from backend APIs to interactive 
+                            frontends, with a sprinkle of DevOps magic.
+                        </p>
+                        <p class="about__text">
+                            When I’m not coding, you’ll find me catching up on tech trends, binge-watching Netflix, or experimenting in the kitchen 
+                            (results vary). Let’s build something awesome together!
+                        </p>  
+                    </div>
+                                                 
+                </div>
+            </section>
+
+            <section class="experience section" id="experience">
+                <h2 class="section-title" >What I Do</h2>
+                <div class="experience-content">
+                    <!-- Company list -->
+                    <div class="company-list">
+                        <a href="#" class="company-item" data-id="1">Northeastern University</a>
+                        <a href="#" class="company-item" data-id="2">Altitud</a>
+                        <a href="#" class="company-item selected" data-id="3">Infosys</a>
+                        <a href="#" class="company-item" data-id="4">NIT - AP</a>
+                    </div>
+                    
+                    <!-- Role descriptions -->
+                    <div class="role-description" data-id="1">
+                        <h3>Research Assistant, Data Scientist</h3>
+                        <p>Sep 2024 - Present</p>
+                        <ul>
+                            <li>Analyzed EEG and EFEG data collected from an in-house prototype VR headset with electrodes, focusing on visually evoked potentials (VEPs).</li>
+                            <li>Led data analysis and interpretation of VEPs to explore their applications in diagnosing and treating conditions such as Age-related Macular Degeneration (AMD) and other multifocal vision issues.</li>
+                            <li>Utilized advanced statistical models and machine learning algorithms to uncover patterns in neural data and predict visual cortex responses.</li>
+                        </ul>
+                    </div>
+                    
+            
+                    <div class="role-description" data-id="2">
+                        <h3>Software Developer</h3>
+                        <p>Jul 2024 - Present</p>
+                        <ul>
+                            <li>Developed no-cost, industry-standard web applications for small local businesses.</li>
+                            <li>Collaborated with 8 software engineers on full-stack applications using MongoDB, Express, React, and Node.</li>
+                            <li>Assisted the migration to Next.js and TypeScript, enhancing performance through server-side rendering.</li>
+                        </ul>
+                    </div>
+            
+                    <div class="role-description active" data-id="3">
+                        <h3>Specialist Programmer - Full Stack Developer / Site Reliability Engineer (SRE)</h3>
+                        <p>Aug 2021 - Jul 2023</p>
+                        <ul>
+                            <li>Implemented multiple backend APIs using Java Spring Boot, improving data exchange efficiency by 20%.</li>
+                            <li>Orchestrated deployment of 15+ applications with DevOps practices on AWS and Kubernetes, achieving 99.9% uptime and reducing deployment times by 40%.</li>
+                            <li>Enhanced data storage for 1TB+ data across relational (MySQL, PostgreSQL) and NoSQL (Cassandra) databases, improving query performance by 25%.</li>
+                            <li>Provided SRE support for 10+ applications, resolving 20+ security vulnerabilities and improving application performance by 35%.</li>
+                            <li>Built and optimized scalable infrastructure in AWS, GCP, and Azure using Terraform and Pulumi, increasing reliability by 50% while cutting maintenance costs by 20%.</li>
+                            <li>Designed and implemented CI/CD pipelines with Jenkins and Terraform, reducing manual deployment effort by 60% and enabling faster releases.</li>
+                            <li>Managed over 30+ Access Control Lists (ACLs) to ensure secure server connectivity and prevent unauthorized access.</li>
+                            <li>Created real-time monitoring solutions with OpenSearch/Elasticsearch, improving incident response times and issue detection by 40%.</li>
+                            <li>Collaborated with cross-functional teams to deliver feature updates, ensuring smooth integration and delivery with zero downtime.</li>
+                            <li>Improved application reliability through automated testing (JUnit), increasing test coverage by 85% and reducing post-release bugs by 30%.</li>
+                            <li>Mentored junior developers, sharing best practices in code quality, testing, and cloud infrastructure management.</li>
+                        </ul>
+                    </div>
+                    
+            
+                    <div class="role-description" data-id="4">
+                        <h3>Executive Member, Electronics and Communication Engineering Association</h3>
+                        <p>Jun 2018 - Jul 2019</p>
+                        <ul>
+                            <li>Coordinated technical events, workshops, and seminars, engaging over 200 students in cutting-edge technologies and research trends in ECE.</li>
+                            <li>Collaborated with faculty and industry experts to organize 10+ paper presentations, promoting student participation in national conferences.</li>
+                            <li>Managed logistics for association events, ensuring smooth execution and participation from both students and professors.</li>
+                            <li>Assisted in setting up technical labs and hands-on training sessions for students to enhance practical knowledge.</li>
+                            <li>Led initiatives to foster student-faculty interaction and encouraged collaborative project development within the department.</li>
+                        </ul>
+                    </div>
+                    
+            
+                </div>
+            </section>
+            
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">The Things I Do Best</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <p class="skills__text">I build efficient, reliable solutions—whether it’s full-stack development or keeping things running smoothly in the cloud. I’m here to make sure your apps don’t break (at least not on my watch). And when I’m not wrangling code, I’m probably teaching machines how to think with a bit of AI magic. Let’s turn your ideas into something that works—without breaking a sweat (or too many lines of code)!</p>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-code-alt skills__icon'></i>
+                                <span class="skills__name">Full-Stack Development</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                            <div>
+                                <span class="skills__percentage"></span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-cloud skills__icon'></i>
+                                <span class="skills__name">Cloud Computing</span>
+                            </div>
+                            <div class="skills__bar skills__css">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage"></span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-server skills__icon' ></i>
+                                <span class="skills__name">DevOps & SRE</span>
+                            </div>
+                            <div class="skills__bar skills__js">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage"></span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class='bx bx-brain skills__icon'></i>
+                                <span class="skills__name">Machine Learning & AI</span>
+                            </div>
+                            <div class="skills__bar skills__ux">
+                                
+                            </div>
+                            <div>
+                                <span class="skills__percentage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>              
+                        <img src="assets/img/skills.png" alt="" class="skills__img">
+                    </div>
+
+                    <!-- Languages Section -->
+                    <div class="skills__category">
+                        <h3 class="skills__subtitle">Languages</h3>
+                        <div class="skills__items">
+                            <div class="skills__item">
+                                <i class='bx bxl-c-plus-plus skills__icon'></i>
+                                <span>C/C++</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-java skills__icon'></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-python skills__icon'></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-javascript skills__icon'></i>
+                                <span>JavaScript</span>
+                            </div>
+
+                            <div class="skills__item">
+                                <i class='bx bxl-go-lang skills__icon'></i>
+                                <span>GoLang</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-typescript skills__icon'></i>
+                                <span>TypeScript</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-html5 skills__icon'></i>
+                                <span>HTML</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-css3 skills__icon'></i>
+                                <span>CSS</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxs-data skills__icon'></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bx-terminal skills__icon'></i>
+                                <span>Shell Script</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Tools Section -->
+                    <div class="skills__category">
+                        <h3 class="skills__subtitle">Tools</h3>
+                        <div class="skills__items">
+                            <div class="skills__item">
+                                <i class='bx bxl-git skills__icon'></i>
+                                <span>Git/GitHub</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-docker skills__icon'></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-terraform-plain skills__icon'></i>
+                                <span>Terraform</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-jenkins-plain skills__icon'></i>
+                                <span>Jenkins</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-packer-plain skills__icon'></i>
+                                <span>Packer</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-apachekafka-plain skills__icon'></i>
+                                <span>kafka</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-linux-plain skills__icon'></i>
+                                <span>linux</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-linux-plain skills__icon'></i>
+                                <span>Unix</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-maven-plain skills__icon'></i>
+                                <span>Maven</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & OS Section -->
+                    <div class="skills__category">
+                        <h3 class="skills__subtitle">Frameworks & OS</h3>
+                        <div class="skills__items">
+                            <div class="skills__item">
+                                <i class='bx bxl-nodejs skills__icon'></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-spring-boot skills__icon'></i>
+                                <span>Spring Boot</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-react skills__icon'></i>
+                                <span>React</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-angular skills__icon'></i>
+                                <span>Angular</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-vuetify-plain skills__icon'></i>
+                                <span>Vue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Tech -->
+                    <div class="skills__category">
+                        <h3 class="skills__subtitle">Cloud Technologies</h3>
+                        <div class="skills__items">
+                            <div class="skills__item">
+                                <i class='bx bxl-aws skills__icon'></i>
+                                <span>AWS</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-googlecloud-plain skills__icon'></i>
+                                <span>GCP</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='devicon-azure-plain skills__icon'></i>
+                                <span>Azure</span>
+                            </div>
+                            <div class="skills__item">
+                                <i class='bx bxl-digitalocean skills__icon'></i>
+                                <span>Digital Ocean</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== WORK =====-->
+            <section id="projects" class="projects section">
+                <h2 class="section-title">Projects</h2>
+                
+                <!-- Project Cards Layout -->
+                <div class="projects__grid">
+                    <!-- Project 1: E-Learning Web Application -->
+                    <div class="project__card" onclick="openProjectDetails('elearning')">
+                        <h3 class="project__title">E-Learning Web Application</h3>
+                        <p class="project__description">An interactive platform for students and teachers with course registration and video content, similar to Coursera but customized for college courses.</p>
+                    </div>
+            
+                    <!-- Project 2: Face Mask Detection System -->
+                    <div class="project__card" onclick="openProjectDetails('facemask')">
+                        <h3 class="project__title">Face Mask Detection System</h3>
+                        <p class="project__description">A real-time mask detection tool leveraging OpenCV and machine learning, deployed as a Streamlit web app.</p>
+                    </div>
+            
+                    <!-- Project 3: Cloud-Based Web Application -->
+                    <div class="project__card" onclick="openProjectDetails('cloudapp')">
+                        <h3 class="project__title">Cloud-Based Web Application</h3>
+                        <p class="project__description">Developed a cloud application using GCP with CI/CD pipelines for automated deployment and scaling.</p>
+                    </div>
+            
+                    <!-- Project 4: Productivity App -->
+                    <div class="project__card" onclick="openProjectDetails('productivity')">
+                        <h3 class="project__title">Productivity App</h3>
+                        <p class="project__description">A mobile app focused on task management, well-being, and productivity tracking, built using Flutter.</p>
+                    </div>
+            
+                    <!-- Project 5: Automated Expense Tracker -->
+                    <div class="project__card" onclick="openProjectDetails('expensetracker')">
+                        <h3 class="project__title">Automated Expense Tracker</h3>
+                        <p class="project__description">A Spring Boot application to track and categorize expenses with integrated support for Splitwise data.</p>
+                    </div>
+            
+                    <!-- Project 6: Portfolio Website -->
+                    <div class="project__card" onclick="openProjectDetails('portfolio')">
+                        <h3 class="project__title">Portfolio Website</h3>
+                        <p class="project__description">An interactive personal website with project highlights, built using HTML, CSS, and JavaScript.</p>
+                    </div>
+            
+                    <!-- Project 7: Real-Time Chat Application -->
+                    <div class="project__card" onclick="openProjectDetails('chatapp')">
+                        <h3 class="project__title">Real-Time Chat Application</h3>
+                        <p class="project__description">A client-server chat application using Java, supporting concurrent messaging and file transfer.</p>
+                    </div>
+                </div>
+            
+                <!-- Project Details Modal -->
+                <div id="projectDetails" class="project__modal">
+                    <div class="project__content">
+                        <span class="close" onclick="closeProjectDetails()">&times;</span>
+                        <h3 id="projectTitle"></h3>
+                        <p id="projectDescription"></p>
+                        <p><strong>Technologies Used:</strong> <span id="projectTech"></span></p>
+                        <div id="projectLinks">
+                            <!-- Links dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <input type="button" value="Enviar" class="contact__button button">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Marlon</p>
+            <div class="footer__social">
+                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+            </div>
+            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
+        </footer>
+
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
