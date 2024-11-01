@@ -184,6 +184,7 @@ img{
     position: relative;
     row-gap: 5rem;
     padding: 4rem 0 5rem;
+    min-width: 100vh;
 
     &__data{
         align-self: center;
@@ -690,7 +691,7 @@ img{
             font-size: 1.25rem;
             transition: color 0.3s;
             width: max-content;
-
+            color: var(--first-color);
             &:hover {
                 color: var(--secondary-color);
             }
@@ -808,69 +809,59 @@ img{
 }
 
 
-.projects__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+
+.projects {
+    max-width: 1200px; /* Set max width for the section */
+    margin: 0 auto; /* Center the projects section */
+    padding: 0 1rem; /* Add padding for smaller screens */
+    
+    .masonry-with-columns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center the columns within the container */
+        gap: 1rem;
+
+        .card {
+            background: white; /* Use the primary color from the root variables */
+            color: var(--second-color); /* Ensure text color is white for contrast */
+            padding: 1.5rem; /* Uniform padding */
+            border-radius: 8px;
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+            flex: 1 0 auto; /* Allow cards to wrap */
+            max-width: 100%;
+            font-family: var(--body-font); /* Use the Poppins font from the root variables */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            /* Adjust heading styles */
+            h3 {
+                font-size: var(--normal-font-size); /* Use the defined h2 font size */
+                font-weight: var(--font-semi); /* Semi-bold weight */
+                margin-bottom: 0.5rem;
+                color: var(--second-color); /* Use secondary color for contrast */
+            }
+
+            /* Adjust paragraph styles */
+            p {
+                font-size: var(--normal-font-size); /* Use the normal font size */
+                line-height: 1.5;
+                color: var(--first-color); /* Ensure text remains readable on the card background */
+            }
+
+             /* Hover Effect */
+             &:hover {
+                transform: scale(1.05); /* Scale the card to 105% of its size */
+                box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15); /* Add a deeper shadow on hover */
+            }
+        }
+
+        /* Dynamic width adjustment for each card */
+        @for $i from 1 through 36 {
+            .card:nth-child(#{$i}) {
+                $w: (random(150) + 250) + px; /* Adjust width between 250px and 400px */
+                width: $w;
+                max-width: 100%; /* Prevent cards from overflowing container */
+            }
+        }
+    }
 }
-
-.project__card {
-    background: #f4f4f4;
-    padding: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    position: relative;
-}
-
-.project__card:hover {
-    transform: scale(1.05);
-}
-
-.project__title {
-    font-size: 1.2rem;
-    color: var(--first-color);
-    margin-bottom: 0.5rem;
-}
-
-.project__description {
-    font-size: 0.875rem;
-    color: var(--second-color);
-    margin: 0.5rem 0 0;
-}
-
-.project__modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.project__content {
-    background: #fff;
-    padding: 2rem;
-    max-width: 500px;
-    width: 90%;
-    border-radius: 8px;
-    position: relative;
-    text-align: left;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-

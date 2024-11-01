@@ -151,3 +151,137 @@ function closeProjectDetails() {
 }
 
 
+
+const projectsData = [
+        {
+          title: "E-Learning Web Application",
+          shortDescription: "An interactive platform for students and teachers.",
+          description: "An interactive platform for students and teachers with course registration and video content, similar to Coursera but customized for college courses.",
+          githubLink: "https://github.com/yourusername/elearning-app",
+          websiteLink: "https://elearning-app.com"
+        },
+        {
+          title: "Face Mask Detection System",
+          shortDescription: "A real-time mask detection tool leveraging OpenCV.",
+          description: "A real-time mask detection tool leveraging OpenCV and machine learning, deployed as a Streamlit web app.",
+          githubLink: "https://github.com/yourusername/facemask-detector",
+          websiteLink: "https://facemask-detector.com"
+        },
+        {
+          title: "Cloud-Based Web Application",
+          shortDescription: "A scalable cloud application using CI/CD.",
+          description: "Developed a cloud application using GCP with CI/CD pipelines for automated deployment and scaling.",
+          githubLink: "https://github.com/yourusername/cloud-app",
+          websiteLink: "https://cloud-app.com"
+        },
+        {
+          title: "Productivity App",
+          shortDescription: "A mobile app focused on task management.",
+          description: "A mobile app focused on task management, well-being, and productivity tracking, built using Flutter.",
+          githubLink: "https://github.com/yourusername/productivity-app",
+          websiteLink: "https://productivity-app.com"
+        },
+        {
+          title: "Automated Expense Tracker",
+          shortDescription: "A Spring Boot app for expense tracking.",
+          description: "A Spring Boot application to track and categorize expenses with integrated support for Splitwise data.",
+          githubLink: "https://github.com/yourusername/expense-tracker",
+          websiteLink: "https://expense-tracker.com"
+        },
+        {
+          title: "Portfolio Website",
+          shortDescription: "An interactive personal website.",
+          description: "An interactive personal website with project highlights, built using HTML, CSS, and JavaScript.",
+          githubLink: "https://github.com/yourusername/portfolio-website",
+          websiteLink: "https://portfolio-website.com"
+        },
+        {
+          title: "Real-Time Chat Application",
+          shortDescription: "A Java-based chat app for messaging.",
+          description: "A real-time chat application using Java, TCP, and UDP sockets, supporting messaging and file transfer for 50+ concurrent users.",
+          githubLink: "https://github.com/yourusername/chat-app",
+          websiteLink: "https://chat-app.com"
+        },
+        {
+          title: "Augmented Reality Campus Map",
+          shortDescription: "An AR app for campus navigation.",
+          description: "An AR map app for campus navigation, providing navigation assistance, building labels, and points of interest using AR technology.",
+          githubLink: "https://github.com/yourusername/ar-campus-map",
+          websiteLink: "https://ar-campus-map.com"
+        },
+        {
+          title: "Green Revolution Data Visualization",
+          shortDescription: "A data visualization project on sustainable farming.",
+          description: "Data analysis and storytelling on sustainable farming, educating museum-goers about the Green Revolution's impact on agriculture and emissions.",
+          githubLink: "https://github.com/yourusername/green-revolution",
+          websiteLink: "https://green-revolution.com"
+        },
+        {
+          title: "Tee Designer",
+          shortDescription: "An interactive t-shirt designer app.",
+          description: "An interactive t-shirt designer using React.js and Three.js, allowing custom logo and print options with AI-generated patterns.",
+          githubLink: "https://github.com/yourusername/tee-designer",
+          websiteLink: "https://tee-designer.com"
+        },
+        {
+          title: "Corn Quest Project",
+          shortDescription: "Data simulation for sustainable farming.",
+          description: "A project to simulate the impact of crop management practices on yield and nutrient loss, showcased at the Cade Museum.",
+          githubLink: "https://github.com/yourusername/corn-quest",
+          websiteLink: "https://corn-quest.com"
+        }
+      
+    // Add more projects as needed
+  ];
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const masonryContainer = document.getElementById("masonryContainer");
+    const modal = document.getElementById("projectModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalGithubLink = document.getElementById("modalGithubLink");
+    const modalWebsiteLink = document.getElementById("modalWebsiteLink");
+    const closeModal = document.getElementById("closeModal");
+  
+    // Render projects
+    projectsData.forEach((project, index) => {
+      const projectCard = document.createElement("div");
+      projectCard.innerHTML = `<h3>${project.title}</h3><p>${project.shortDescription}</p>`;
+      projectCard.dataset.index = index;
+      projectCard.addEventListener("click", () => openModal(index));
+      masonryContainer.appendChild(projectCard);
+    });
+  
+    // Handle Masonry layout using Flexbox with JavaScript for equal height columns
+    const numCols = 3;
+    const colHeights = Array(numCols).fill(0);
+    Array.from(masonryContainer.children).forEach((child, i) => {
+      const order = i % numCols;
+      child.style.order = order;
+      colHeights[order] += parseFloat(child.clientHeight);
+    });
+    masonryContainer.style.height = Math.max(...colHeights) + "px";
+  
+    // Open modal and populate details
+    function openModal(index) {
+      const project = projectsData[index];
+      modalTitle.innerText = project.title;
+      modalDescription.innerText = project.description;
+      modalGithubLink.href = project.githubLink;
+      modalWebsiteLink.href = project.websiteLink;
+      modal.style.display = "flex";
+      masonryContainer.classList.add("blur");
+    }
+  
+    // Close modal
+    closeModal.addEventListener("click", closeProjectModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeProjectModal();
+    });
+  
+    function closeProjectModal() {
+      modal.style.display = "none";
+      masonryContainer.classList.remove("blur");
+    }
+  });
+  

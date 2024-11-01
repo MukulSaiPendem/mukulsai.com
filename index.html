@@ -23,8 +23,8 @@
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#experience" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
                         <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
@@ -40,7 +40,7 @@
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Mukul</span><br>Software Developer</h1>
+                    <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Mukul</span><br>Software Developer</h1>
 
                     <a href="#contact" class="button">Contact</a>
                 </div>
@@ -366,68 +366,46 @@
                 </div>
             </section>
 
-            <!--===== WORK =====-->
-            <section id="projects" class="projects section">
+            <section class="projects section" id="projects">
                 <h2 class="section-title">Projects</h2>
-                
-                <!-- Project Cards Layout -->
-                <div class="projects__grid">
-                    <!-- Project 1: E-Learning Web Application -->
-                    <div class="project__card" onclick="openProjectDetails('elearning')">
-                        <h3 class="project__title">E-Learning Web Application</h3>
-                        <p class="project__description">An interactive platform for students and teachers with course registration and video content, similar to Coursera but customized for college courses.</p>
+                <div class="masonry-with-columns" id="masonry-with-columns">
+                    <div class="card">
+                        <h3>E-Learning Web Application</h3>
+                        <p>Developed a responsive online learning platform using Node.js, React.js, and MongoDB, hosted on AWS EC2 with AWS S3 for content storage, achieving 100% uptime during testing.</p>
                     </div>
-            
-                    <!-- Project 2: Face Mask Detection System -->
-                    <div class="project__card" onclick="openProjectDetails('facemask')">
-                        <h3 class="project__title">Face Mask Detection System</h3>
-                        <p class="project__description">A real-time mask detection tool leveraging OpenCV and machine learning, deployed as a Streamlit web app.</p>
+                    <div class="card">
+                        <h3>Real-time Face Mask Detection</h3>
+                        <p>Trained a CNN model with TensorFlow and OpenCV for real-time face mask detection and created an interactive interface using Streamlit.</p>
                     </div>
-            
-                    <!-- Project 3: Cloud-Based Web Application -->
-                    <div class="project__card" onclick="openProjectDetails('cloudapp')">
-                        <h3 class="project__title">Cloud-Based Web Application</h3>
-                        <p class="project__description">Developed a cloud application using GCP with CI/CD pipelines for automated deployment and scaling.</p>
+                    <div class="card">
+                        <h3>Cloud-Based Web Application</h3>
+                        <p>Built a scalable web application on Google Cloud Platform with autoscaling, continuous integration, and deployment pipelines, utilizing Cloud Functions, Cloud SQL, and GitHub Actions.</p>
                     </div>
-            
-                    <!-- Project 4: Productivity App -->
-                    <div class="project__card" onclick="openProjectDetails('productivity')">
-                        <h3 class="project__title">Productivity App</h3>
-                        <p class="project__description">A mobile app focused on task management, well-being, and productivity tracking, built using Flutter.</p>
+                    <div class="card">
+                        <h3>Cyber Unbound Platform Development</h3>
+                        <p>Created a platform for hiring cybersecurity professionals using Next.js and MongoDB, ensuring data integrity and optimal performance.</p>
                     </div>
-            
-                    <!-- Project 5: Automated Expense Tracker -->
-                    <div class="project__card" onclick="openProjectDetails('expensetracker')">
-                        <h3 class="project__title">Automated Expense Tracker</h3>
-                        <p class="project__description">A Spring Boot application to track and categorize expenses with integrated support for Splitwise data.</p>
+                    <div class="card">
+                        <h3>SIMActivation Application</h3>
+                        <p>Engineered a SIM activation web application with Spring Boot and Angular JS, reducing activation time by 40% and decreasing support tickets by 25%.</p>
                     </div>
-            
-                    <!-- Project 6: Portfolio Website -->
-                    <div class="project__card" onclick="openProjectDetails('portfolio')">
-                        <h3 class="project__title">Portfolio Website</h3>
-                        <p class="project__description">An interactive personal website with project highlights, built using HTML, CSS, and JavaScript.</p>
+                    <div class="card">
+                        <h3>Task Manager Application</h3>
+                        <p>Built a cross-platform task management app using React Native and Redux, with real-time data synchronization and authentication via Firebase.</p>
                     </div>
-            
-                    <!-- Project 7: Real-Time Chat Application -->
-                    <div class="project__card" onclick="openProjectDetails('chatapp')">
-                        <h3 class="project__title">Real-Time Chat Application</h3>
-                        <p class="project__description">A client-server chat application using Java, supporting concurrent messaging and file transfer.</p>
+                    <div class="card">
+                        <h3>Job Search GPT</h3>
+                        <p>Developed a job search API using Tavily.ai and OpenAI-powered agents to curate relevant job listings, enhancing search result accuracy and relevance.</p>
                     </div>
-                </div>
-            
-                <!-- Project Details Modal -->
-                <div id="projectDetails" class="project__modal">
-                    <div class="project__content">
-                        <span class="close" onclick="closeProjectDetails()">&times;</span>
-                        <h3 id="projectTitle"></h3>
-                        <p id="projectDescription"></p>
-                        <p><strong>Technologies Used:</strong> <span id="projectTech"></span></p>
-                        <div id="projectLinks">
-                            <!-- Links dynamically inserted here -->
-                        </div>
+                    <div class="card">
+                        <h3>Tee Graphic Designer</h3>
+                        <p>Built an interactive t-shirt designer with React.js and Three.js, integrating AI capabilities via OpenAI’s DALL-E API for user-generated logos, patterns, and color schemes.</p>
                     </div>
                 </div>
             </section>
+            
+            
+              
             
 
 
@@ -440,7 +418,7 @@
                         <input type="text" placeholder="Name" class="contact__input">
                         <input type="mail" placeholder="Email" class="contact__input">
                         <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
+                        <input type="button" value="Send" class="contact__button button">
                     </form>
                 </div>
             </section>
@@ -448,13 +426,11 @@
 
         <!--===== FOOTER =====-->
         <footer class="footer">
-            <p class="footer__title">Marlon</p>
             <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+                <a href="mailto:pendem.mu@northeastern.edu" class="footer__icon"><i class='bx bx-envelope' ></i></a>
+                <a href="tel:+18573401981" class="footer__icon"><i class='bx bx-phone' ></i></a>
             </div>
-            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
+            <p class="footer__copy">&#169; Mukul. Crafted with care, caffeine, and a sprinkle of ambition. Thanks for stopping by!</p>
         </footer>
 
 
