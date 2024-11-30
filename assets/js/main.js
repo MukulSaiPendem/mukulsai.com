@@ -24,23 +24,32 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
-    const scrollDown = window.scrollY
+const scrollActive = () => {
+    const scrollDown = window.scrollY;
 
-  sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 58,
-              sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-        
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }                                                    
-    })
-}
-window.addEventListener('scroll', scrollActive)
+    sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 58; // Adjust offset as needed
+        const sectionId = current.getAttribute("id");
+        const sectionsClass = document.querySelector(
+            `.nav__menu a[href*='${sectionId}']`
+        );
+
+        // Ensure sectionsClass exists before accessing classList
+        if (sectionsClass) {
+            if (
+                scrollDown > sectionTop &&
+                scrollDown <= sectionTop + sectionHeight
+            ) {
+                sectionsClass.classList.add("active-link");
+            } else {
+                sectionsClass.classList.remove("active-link");
+            }
+        }
+    });
+};
+
+window.addEventListener("scroll", scrollActive);
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
@@ -54,7 +63,7 @@ const sr = ScrollReveal({
 sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text',{}); 
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img, .skills__items',{delay: 200}); 
 sr.reveal('.home__social-icon',{ interval: 100}); 
-sr.reveal('.experience-content,.skills__data, skills__category, skills__items, .work__img, .contact__input',{interval: 100}); 
+sr.reveal('.experience-content,.skills__data, skills__category, skills__items, .work__img, .projects, .masonry-with-columns, .card,.contact__input',{interval: 100}); 
 
 
 document.querySelectorAll('.company-item').forEach(item => {
@@ -75,213 +84,257 @@ document.querySelectorAll('.company-item').forEach(item => {
 });
 
 
-const projects = {
-    elearning: {
+
+// Define project details in a JavaScript array with Markdown descriptions
+const projects = [
+    {
+        id: 1,
         title: "E-Learning Web Application",
-        description: "A responsive online platform for e-learning with features for both students and teachers.",
-        tech: "React, Node.js, MongoDB, AWS",
-        links: {
-            github: "https://github.com/username/elearning",
-            website: "https://elearning.example.com"
-        }
-    },
-    facemask: {
-        title: "Face Mask Detection System",
-        description: "Real-time mask detection using OpenCV and machine learning.",
-        tech: "Python, OpenCV, Streamlit",
-        links: {
-            github: "https://github.com/username/facemask",
-            website: "https://facemaskdetection.example.com"
-        }
-    },
-    cloudapp: {
+        description: `
+- **Responsive** online learning platform for **students** and **professors**
+- Built with **Node.js**, **React.js**, and **MongoDB**
+- Integrated and managed **50GB+** of multimedia content on **AWS S3**
+- Hosted on **AWS EC2** with **OAuth** and **SSL** for secure authentication
+- Achieved **100% uptime** during testing, ensuring high availability
+    `,
+        technologies: [ "React.js", "MongoDb","Node.js","AWS" ],
+        githubLink: "https://github.com/INFO-6150/e_learning",
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 2,
+        title: "Real-time Face Mask Detection",
+        description: `
+- Utilized **MobileNetV2** for training a robust face mask detection model.
+- Designed and implemented real-time detection with **OpenCV** and **Streamlit** for an interactive user interface.
+- Preprocessed datasets with **image augmentation** techniques to enhance model accuracy.
+- Achieved seamless deployment by integrating pre-trained models into a web application.
+        `,
+        technologies: [ "TensorFlow", "OpenCV","Streamlit","Python", "ML" ],
+        githubLink: "https://github.com/MukulSaiPendem/RealTime-Mask-Recognition.git",
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 3,
         title: "Cloud-Based Web Application",
-        description: "A scalable web application with CI/CD pipelines on Google Cloud Platform.",
-        tech: "GCP, Docker, Kubernetes, Terraform",
-    },
-    productivity: {
-        title: "Productivity App",
-        description: "Task management and well-being tracking app, built with Flutter.",
-        tech: "Flutter, Dart",
-    },
-    expensetracker: {
-        title: "Automated Expense Tracker",
-        description: "Expense tracking with Spring Boot backend, integrated with Splitwise.",
-        tech: "Spring Boot, PostgreSQL, Java",
-    },
-    portfolio: {
-        title: "Portfolio Website",
-        description: "An interactive portfolio website showcasing various projects.",
-        tech: "HTML, CSS, JavaScript",
-        links: {
-            github: "https://github.com/username/portfolio",
-            website: "https://username.github.io"
-        }
-    },
-    chatapp: {
-        title: "Real-Time Chat Application",
-        description: "Java-based chat application supporting messaging and file transfers.",
-        tech: "Java, TCP/UDP Sockets",
-    }
-};
+        description: `
 
-function openProjectDetails(projectId) {
-    const project = projects[projectId];
-    document.getElementById('projectTitle').innerText = project.title;
-    document.getElementById('projectDescription').innerText = project.description;
-    document.getElementById('projectTech').innerText = project.tech;
+- **Scalable Deployment**: Developed and deployed a web application using **Spring Boot** on **Google Cloud Platform**.
+- **Serverless Email Verification**: Implemented a **Cloud Function** to handle user email verification seamlessly.
+- **Infrastructure as Code**: Used **Terraform** for automated infrastructure deployment and management on GCP.
+- **Custom Image Creation**: Utilized **Packer** to build reusable images for efficient instance provisioning.
+- **Autoscaling and High Availability**: Configured **Managed Instance Groups** with **autoscaling** to handle varying traffic loads, ensuring performance and reliability.
+- **CI/CD Pipeline**: Designed and implemented a **GitHub Workflow** for **Continuous Integration** and **Continuous Deployment**, enabling automated builds, testing, and deployments directly to GCP.
+
+      `,
+      technologies: [ "Spring boot", "Java","GCP","Serverless", "CI/CD","Git Actions","Packer", "Terraform" ],
+        githubLink: "https://github.com/orgs/cloud-orgz/repositories",
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 4,
+        title: "Calderon Bulldogs",
+        description: `
+- **CMS-Driven Platform**: Transformed a static business website into a dynamic application with a robust **Content Management System (CMS)**.
+- **Admin Features**: Enabled the business to manage customer relationships, content updates, and e-commerce operations seamlessly.
+- **Media Management**: Integrated **AWS S3** for secure image and file storage to support high-quality media uploads.
+- **High Performance**: Built with **Next.js** for server-side rendering and optimized performance.
+- **Database Management**: Utilized **PostgreSQL** with **Prisma** for efficient and scalable data handling.
+- **tRPC Integration**: Enabled type-safe API communication between the frontend and backend for a seamless developer experience.
+        `,
+        technologies: [ "Next.js", "TypeScript","AWS S3", "Tailwind CSS", "PostgreSQL", "Prisma", "tRPC" ],
+        githubLink: "https://github.com/altitud-initiative/calderon-bulldogs",
+        websiteLink: null,
+        imageUrl: null
+    }
     
-    const projectLinks = document.getElementById('projectLinks');
-    projectLinks.innerHTML = ""; // Clear previous links
+    ,
+    {
+        id: 5,
+        title: "Cyber Unbound Platform Development",
+        description: `
+- **Secure Hiring Platform**: Built a platform for hiring cybersecurity professionals, emphasizing data integrity and security.
+- **High-Performance**: Developed with **Next.js** for server-side rendering and fast loading times.
+- **Scalable Database**: Integrated **MongoDB** to handle dynamic data storage with high reliability.
+- **Data Integrity**: Ensured data accuracy and consistency across the platform using robust validation mechanisms.
+- **User-Friendly Interface**: Designed an intuitive and responsive UI for seamless navigation.
+    
+        `,
+        technologies: [ "Next.js", "JavaScript","AWS" ],
+        githubLink: null,
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 6,
+        title: "SIM Activation Application",
+        description: `
+- **Efficient SIM Activation**: Engineered a web application that reduced SIM activation time by **40%**, streamlining the activation process for customers.
+- **Reduced Support Tickets**: Enhanced user experience and resolved common pain points, resulting in a **25% reduction** in support tickets.
+- **Robust Backend**: Developed with **Spring Boot**, ensuring scalable and reliable backend services.
+- **Interactive Frontend**: Built with **AngularJS**, providing a responsive and dynamic user interface for seamless activation workflows.
+- **Data Security**: Integrated security measures to protect sensitive customer data during the activation process.
 
-    if (project.links) {
-        if (project.links.github) {
-            projectLinks.innerHTML += `<a href="${project.links.github}" target="_blank" class="project__link">GitHub</a>`;
-        }
-        if (project.links.website) {
-            projectLinks.innerHTML += `<a href="${project.links.website}" target="_blank" class="project__link">Website</a>`;
-        }
+        `,
+        technologies: [ "Java", "Spring Boot","Angular.js", "TypeScript" ],
+        githubLink: null,
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 7,
+        title: "Task Manager Application",
+        description: `
+    
+- **Cross-Platform Compatibility**: Developed a task management app using **React Native**, ensuring seamless performance on both iOS and Android devices.
+- **Real-Time Data Sync**: Integrated **Firebase** for real-time task updates and synchronization across devices.
+- **Secure Authentication**: Implemented user authentication via **Firebase Auth**, ensuring data security and privacy.
+- **State Management**: Utilized **Redux** to manage application state efficiently, ensuring a smooth user experience.
+- **Offline Support**: Enabled offline task creation and syncing once the device reconnects.
+        `,
+        technologies: [ "React Native", "JavaScript","FireBase" ],
+        githubLink: null,
+        websiteLink: null,
+        imageUrl: null
+    }
+    ,
+    {
+        id: 8,
+        title: "Job Search GPT",
+        description: `
+
+- **AI-Powered Job Search**: Leveraged **Tavily.ai** and **OpenAI-powered agents** to curate personalized and relevant job listings.
+- **Enhanced Search Accuracy**: Improved the relevance of search results by analyzing job descriptions and user preferences with AI models.
+- **Custom API Development**: Built a RESTful API to fetch and deliver curated job listings efficiently.
+- **Seamless Integration**: Designed the API to integrate easily with job boards, career platforms, and user-facing applications.
+
+        `,
+        technologies: [ "Python", "AI Agents","OpenAI", "Tavily.ai" ],
+        githubLink: "https://github.com/MukulSaiPendem/job-search-gpt",
+        websiteLink: null,
+        imageUrl: null
+    }    
+    ,
+    {
+        id: 9,
+        title: "Tee Graphic Designer",
+        description: `
+- **Custom T-Shirt Designer**: Upload images, add text, and create unique t-shirt designs.
+- **AI-Powered Creativity**: Generate logos, patterns, and designs using OpenAI's **DALL-E API**.
+- **Real-Time Editing**: Drag, resize, and rotate designs effortlessly for a seamless user experience.
+- **Responsive UI**: Built with **Tailwind CSS**, optimized for all devices.
+- **Blazing-Fast Development**: Powered by **Vite** for fast builds and improved performance.
+
+        `,
+        technologies: [ "Vite.js", "Node.js","OpenAI", "Dall-e","Three.js", "Tailwind CSS" ],
+        githubLink: "https://github.com/MukulSaiPendem/tee-designer",
+        websiteLink: null,
+        imageUrl: null
+    }
+    
+];
+
+function openModalById(projectId) {
+    const isMobile = window.innerWidth <= 768;
+    const project = projects.find(p => p.id === projectId);
+    if (!project) {
+        console.error("Project not found");
+        return;
     }
 
-    document.getElementById('projectDetails').style.display = 'flex';
+    // If it's mobile, redirect to the GitHub repository
+    if (isMobile) {
+        if (project.githubLink) {
+            window.open(project.githubLink, "_blank"); // Redirect to GitHub
+        } else {
+            console.warn("No GitHub link provided for this project.");
+        }
+        return;
+    }
+    // Set the modal title
+    document.getElementById("modal-title").innerText = project.title;
+
+    // Render Markdown description
+    const converter = new showdown.Converter();
+    document.getElementById("modal-description").innerHTML = converter.makeHtml(project.description);
+
+    // Set GitHub link
+    const githubLink = document.getElementById("modal-github-link");
+    if (project.githubLink) {
+        githubLink.href = project.githubLink;
+        githubLink.style.display = "inline-block";
+    } else {
+        githubLink.style.display = "none";
+    }
+
+    // Handle optional website link
+    const websiteLink = document.getElementById("modal-website-link");
+    if (project.websiteLink) {
+        websiteLink.href = project.websiteLink;
+        websiteLink.style.display = "inline-block";
+    } else {
+        websiteLink.style.display = "none";
+    }
+
+    console.log("Technologies Array:", project.technologies);
+
+    // Populate technologies as buttons
+    const technologiesContainer = document.getElementById("modal-technologies");
+    technologiesContainer.innerHTML = ""; // Clear previous content
+    if (project.technologies && Array.isArray(project.technologies)) {
+        project.technologies.forEach((tech) => {
+            const button = document.createElement("a");
+            button.className = "tech-button";
+            button.textContent = tech; // Updated to use the string directly
+            technologiesContainer.appendChild(button);
+        });
+    } else {
+        console.warn("No technologies found for this project");
+    }
+
+    // Handle optional image
+    const modalImage = document.getElementById("modal-image");
+    if (project.imageUrl) {
+        modalImage.src = project.imageUrl;
+        modalImage.style.display = "block";
+    } else {
+        modalImage.style.display = "none";
+    }
+
+    // Show the modal and overlay
+    document.getElementById("modal-overlay").classList.add("active");
+    document.getElementById("modal").classList.add("active");
+
+    // Add blur effect and disable scrolling
+    document.getElementById("main-content").classList.add("blur");
+    document.body.classList.add("no-scroll");
 }
 
-function closeProjectDetails() {
-    document.getElementById('projectDetails').style.display = 'none';
+
+function closeModal() {
+    document.getElementById("modal-overlay").classList.remove("active");
+    document.getElementById("modal").classList.remove("active");
+
+    // Remove blur effect and enable scrolling
+    document.getElementById("main-content").classList.remove("blur");
+    document.body.classList.remove("no-scroll");
 }
 
 
 
-const projectsData = [
-        {
-          title: "E-Learning Web Application",
-          shortDescription: "An interactive platform for students and teachers.",
-          description: "An interactive platform for students and teachers with course registration and video content, similar to Coursera but customized for college courses.",
-          githubLink: "https://github.com/yourusername/elearning-app",
-          websiteLink: "https://elearning-app.com"
-        },
-        {
-          title: "Face Mask Detection System",
-          shortDescription: "A real-time mask detection tool leveraging OpenCV.",
-          description: "A real-time mask detection tool leveraging OpenCV and machine learning, deployed as a Streamlit web app.",
-          githubLink: "https://github.com/yourusername/facemask-detector",
-          websiteLink: "https://facemask-detector.com"
-        },
-        {
-          title: "Cloud-Based Web Application",
-          shortDescription: "A scalable cloud application using CI/CD.",
-          description: "Developed a cloud application using GCP with CI/CD pipelines for automated deployment and scaling.",
-          githubLink: "https://github.com/yourusername/cloud-app",
-          websiteLink: "https://cloud-app.com"
-        },
-        {
-          title: "Productivity App",
-          shortDescription: "A mobile app focused on task management.",
-          description: "A mobile app focused on task management, well-being, and productivity tracking, built using Flutter.",
-          githubLink: "https://github.com/yourusername/productivity-app",
-          websiteLink: "https://productivity-app.com"
-        },
-        {
-          title: "Automated Expense Tracker",
-          shortDescription: "A Spring Boot app for expense tracking.",
-          description: "A Spring Boot application to track and categorize expenses with integrated support for Splitwise data.",
-          githubLink: "https://github.com/yourusername/expense-tracker",
-          websiteLink: "https://expense-tracker.com"
-        },
-        {
-          title: "Portfolio Website",
-          shortDescription: "An interactive personal website.",
-          description: "An interactive personal website with project highlights, built using HTML, CSS, and JavaScript.",
-          githubLink: "https://github.com/yourusername/portfolio-website",
-          websiteLink: "https://portfolio-website.com"
-        },
-        {
-          title: "Real-Time Chat Application",
-          shortDescription: "A Java-based chat app for messaging.",
-          description: "A real-time chat application using Java, TCP, and UDP sockets, supporting messaging and file transfer for 50+ concurrent users.",
-          githubLink: "https://github.com/yourusername/chat-app",
-          websiteLink: "https://chat-app.com"
-        },
-        {
-          title: "Augmented Reality Campus Map",
-          shortDescription: "An AR app for campus navigation.",
-          description: "An AR map app for campus navigation, providing navigation assistance, building labels, and points of interest using AR technology.",
-          githubLink: "https://github.com/yourusername/ar-campus-map",
-          websiteLink: "https://ar-campus-map.com"
-        },
-        {
-          title: "Green Revolution Data Visualization",
-          shortDescription: "A data visualization project on sustainable farming.",
-          description: "Data analysis and storytelling on sustainable farming, educating museum-goers about the Green Revolution's impact on agriculture and emissions.",
-          githubLink: "https://github.com/yourusername/green-revolution",
-          websiteLink: "https://green-revolution.com"
-        },
-        {
-          title: "Tee Designer",
-          shortDescription: "An interactive t-shirt designer app.",
-          description: "An interactive t-shirt designer using React.js and Three.js, allowing custom logo and print options with AI-generated patterns.",
-          githubLink: "https://github.com/yourusername/tee-designer",
-          websiteLink: "https://tee-designer.com"
-        },
-        {
-          title: "Corn Quest Project",
-          shortDescription: "Data simulation for sustainable farming.",
-          description: "A project to simulate the impact of crop management practices on yield and nutrient loss, showcased at the Cade Museum.",
-          githubLink: "https://github.com/yourusername/corn-quest",
-          websiteLink: "https://corn-quest.com"
-        }
-      
-    // Add more projects as needed
-  ];
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const masonryContainer = document.getElementById("masonryContainer");
-    const modal = document.getElementById("projectModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDescription = document.getElementById("modalDescription");
-    const modalGithubLink = document.getElementById("modalGithubLink");
-    const modalWebsiteLink = document.getElementById("modalWebsiteLink");
-    const closeModal = document.getElementById("closeModal");
-  
-    // Render projects
-    projectsData.forEach((project, index) => {
-      const projectCard = document.createElement("div");
-      projectCard.innerHTML = `<h3>${project.title}</h3><p>${project.shortDescription}</p>`;
-      projectCard.dataset.index = index;
-      projectCard.addEventListener("click", () => openModal(index));
-      masonryContainer.appendChild(projectCard);
+// Add event listeners for project cards
+document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", () => {
+        const projectId = parseInt(card.getAttribute("data-id")); // Retrieve project ID from data-id
+        openModalById(projectId); // Call the function with the project ID
     });
-  
-    // Handle Masonry layout using Flexbox with JavaScript for equal height columns
-    const numCols = 3;
-    const colHeights = Array(numCols).fill(0);
-    Array.from(masonryContainer.children).forEach((child, i) => {
-      const order = i % numCols;
-      child.style.order = order;
-      colHeights[order] += parseFloat(child.clientHeight);
-    });
-    masonryContainer.style.height = Math.max(...colHeights) + "px";
-  
-    // Open modal and populate details
-    function openModal(index) {
-      const project = projectsData[index];
-      modalTitle.innerText = project.title;
-      modalDescription.innerText = project.description;
-      modalGithubLink.href = project.githubLink;
-      modalWebsiteLink.href = project.websiteLink;
-      modal.style.display = "flex";
-      masonryContainer.classList.add("blur");
-    }
-  
-    // Close modal
-    closeModal.addEventListener("click", closeProjectModal);
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeProjectModal();
-    });
-  
-    function closeProjectModal() {
-      modal.style.display = "none";
-      masonryContainer.classList.remove("blur");
-    }
-  });
-  
+});
+

@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="assets/css/styles.css">
-
+        <link rel="icon" type="image/png" href="assets/img/letter-m.png"> 
         <!-- =====BOX ICONS===== -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-        <title>Mukul.dev</title>
+        <title>mukulsai.com</title>
     </head>
     <body>
+        <div id="main-content">
         <!--===== HEADER =====-->
         <header class="l-header">
             <nav class="nav bd-grid">
@@ -25,7 +26,7 @@
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#experience" class="nav__link">Work</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
                 </div>
@@ -48,8 +49,8 @@
                 <div class="home__social">
                     <a href="https://www.linkedin.com/in/mukul-sai" target="_blank" class="home__social-icon"><i class='bx bxl-linkedin' title="linkedin"></i></a>
                     <a href="mailto:pendem.mu@northeastern.edu" target="_blank" class="home__social-icon"><i class='bx bx-envelope' title="email"></i></a>
-                    <a href="https://github.com/MukulSaiPendem" class="home__social-icon"><i class='bx bxl-github' title="github"></i></a>
-                    <a href="./assets/Mukul_Sai_Pendem_Resume.pdf" download="Mukul_Sai_Pendem_Resume.pdf" class="home__social-icon" title="Download Resume">
+                    <a href="https://github.com/MukulSaiPendem" target="_blank" class="home__social-icon"><i class='bx bxl-github' title="github"></i></a>
+                    <a href="https://drive.google.com/file/d/1NR4h5Jb5ujFvpCF-D0DWPEfmkAr5vfIF/view" target="_blank" class="home__social-icon" title="View Resume">
                         <i class='bx bx-download'></i>
                     </a>
                 </div>
@@ -369,43 +370,45 @@
             <section class="projects section" id="projects">
                 <h2 class="section-title">Projects</h2>
                 <div class="masonry-with-columns" id="masonry-with-columns">
-                    <div class="card">
+                    <div class="card" data-id="1">
                         <h3>E-Learning Web Application</h3>
                         <p>Developed a responsive online learning platform using Node.js, React.js, and MongoDB, hosted on AWS EC2 with AWS S3 for content storage, achieving 100% uptime during testing.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="2">
                         <h3>Real-time Face Mask Detection</h3>
                         <p>Trained a CNN model with TensorFlow and OpenCV for real-time face mask detection and created an interactive interface using Streamlit.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="3">
                         <h3>Cloud-Based Web Application</h3>
                         <p>Built a scalable web application on Google Cloud Platform with autoscaling, continuous integration, and deployment pipelines, utilizing Cloud Functions, Cloud SQL, and GitHub Actions.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="4">
+                        <h3>Calderon Bulldogs</h3>
+                        <p>Calderon Bulldogs is a full-stack application built for a family-owned bulldog breeding business based in Santa Ana. It is a CMS-driven application with robust admin features. </p>
+                    </div>
+                    <div class="card" data-id="5">
                         <h3>Cyber Unbound Platform Development</h3>
                         <p>Created a platform for hiring cybersecurity professionals using Next.js and MongoDB, ensuring data integrity and optimal performance.</p>
                     </div>
-                    <div class="card">
-                        <h3>SIMActivation Application</h3>
+                    <div class="card" data-id="6">
+                        <h3>SIM Activation Application</h3>
                         <p>Engineered a SIM activation web application with Spring Boot and Angular JS, reducing activation time by 40% and decreasing support tickets by 25%.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="7">
                         <h3>Task Manager Application</h3>
                         <p>Built a cross-platform task management app using React Native and Redux, with real-time data synchronization and authentication via Firebase.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="8">
                         <h3>Job Search GPT</h3>
                         <p>Developed a job search API using Tavily.ai and OpenAI-powered agents to curate relevant job listings, enhancing search result accuracy and relevance.</p>
                     </div>
-                    <div class="card">
+                    <div class="card" data-id="9">
                         <h3>Tee Graphic Designer</h3>
                         <p>Built an interactive t-shirt designer with React.js and Three.js, integrating AI capabilities via OpenAI’s DALL-E API for user-generated logos, patterns, and color schemes.</p>
                     </div>
                 </div>
             </section>
             
-            
-              
             
 
 
@@ -432,12 +435,36 @@
             </div>
             <p class="footer__copy">&#169; Mukul. Crafted with care, caffeine, and a sprinkle of ambition. Thanks for stopping by!</p>
         </footer>
+        </div>
+        
+        <!-- Modal overlay and modal components -->
+        <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal" id="modal">
+            <span class="close-icon" onclick="closeModal()" aria-label="Close">&times;</span> <!-- Close Icon -->
 
+            <!-- Optional image at the top of the modal -->
+            <img src="" alt="Project Image" id="modal-image" style="display: none;">
+
+            <div class="modal-content">
+                <h3 id="modal-title">Project Title</h3>
+                <p id="modal-description">Detailed information about the project.</p>
+                <div id="modal-technologies"></div>
+                <div class="modal-links">
+                    <a href="#" target="_blank" id="modal-github-link" class="modal-link" aria-label="GitHub">
+                        <i class="bx bxl-github"></i> <!-- GitHub Icon -->
+                    </a>
+                    <a href="#" target="_blank" id="modal-website-link" class="modal-link" aria-label="Website">
+                        <i class="bx bx-link-external"></i> <!-- Website Icon -->
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <!--===== SCROLL REVEAL =====-->
         <script src="https://unpkg.com/scrollreveal"></script>
-
         <!--===== MAIN JS =====-->
+        <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+
         <script src="assets/js/main.js"></script>
     </body>
 </html>

@@ -184,7 +184,7 @@ img{
     position: relative;
     row-gap: 5rem;
     padding: 4rem 0 5rem;
-    min-width: 100vh;
+    min-height: 100vh;
 
     &__data{
         align-self: center;
@@ -389,14 +389,25 @@ img{
 }
 
 /* ===== MEDIA QUERIES=====*/
-@media screen and (max-width: 320px){
+@media screen and (max-width: 359px){
     .home{
         row-gap: 2rem;
 
         &__img{
             width: 200px;
+            top: 55% !important;
         }
     }
+}
+
+@media screen and (max-width: 575px){
+    .home{
+        row-gap: 2rem;
+        &__img{
+            top: 45%;
+        }
+    }
+
 }
 
 @media screen and (min-width: 576px){
@@ -527,6 +538,20 @@ img{
         }
     }
 }
+
+@media screen and (min-width: 950px) and (max-width: 1025px) {
+    
+    .home{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .skills{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 
 
 
@@ -811,57 +836,269 @@ img{
 
 
 .projects {
-    max-width: 1200px; /* Set max width for the section */
-    margin: 0 auto; /* Center the projects section */
-    padding: 0 1rem; /* Add padding for smaller screens */
-    
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
     .masonry-with-columns {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* Center the columns within the container */
+        justify-content: center;
         gap: 1rem;
 
         .card {
-            background: white; /* Use the primary color from the root variables */
-            color: var(--second-color); /* Ensure text color is white for contrast */
-            padding: 1.5rem; /* Uniform padding */
+            background: white;
+            color: var(--second-color);
+            padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-            flex: 1 0 auto; /* Allow cards to wrap */
+            box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+            flex: 1 0 auto;
             max-width: 100%;
-            font-family: var(--body-font); /* Use the Poppins font from the root variables */
+            font-family: var(--body-font);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
 
-            /* Adjust heading styles */
             h3 {
-                font-size: var(--normal-font-size); /* Use the defined h2 font size */
-                font-weight: var(--font-semi); /* Semi-bold weight */
+                font-size: var(--normal-font-size);
+                font-weight: var(--font-semi);
                 margin-bottom: 0.5rem;
-                color: var(--second-color); /* Use secondary color for contrast */
+                color: var(--second-color);
             }
 
-            /* Adjust paragraph styles */
             p {
-                font-size: var(--normal-font-size); /* Use the normal font size */
+                font-size: var(--normal-font-size);
                 line-height: 1.5;
-                color: var(--first-color); /* Ensure text remains readable on the card background */
+                color: var(--first-color);
             }
 
-             /* Hover Effect */
-             &:hover {
-                transform: scale(1.05); /* Scale the card to 105% of its size */
-                box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15); /* Add a deeper shadow on hover */
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
             }
         }
 
-        /* Dynamic width adjustment for each card */
         @for $i from 1 through 36 {
             .card:nth-child(#{$i}) {
-                $w: (random(150) + 250) + px; /* Adjust width between 250px and 400px */
+                $w: (random(200) + 250) + px;
                 width: $w;
-                max-width: 100%; /* Prevent cards from overflowing container */
+                max-width: 100%;
             }
         }
     }
 }
+
+#modal-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; // Adds spacing between buttons
+    margin-top: 15px; // Adds spacing above the buttons
+    justify-content: center;
+}
+
+.tech-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--first-color); // Primary blue
+    color: #ffffff; // White text
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: #353638; // Slightly darker blue
+        transform: translateY(-2px); // Lift effect
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0); // Pressed state
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+#main-content.blur {
+    filter: blur(8px);
+}
+
+/* Disable scrolling when the modal is open */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Modal overlay to cover the entire screen */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh; /* Prevent the modal from exceeding the viewport height */
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+    overflow-y: auto; /* Enable scrolling within the modal for overflow content */
+
+    
+    
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Optional image styling */
+.modal img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: none; /* Hidden by default, shown only when there's an image */
+}
+
+/* Close button styling */
+.close-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: #666;
+    }
+}
+
+/* Icon link styling */
+.modal-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .modal-link {
+        font-size: 1.5rem;
+        color: #333;
+        transition: color 0.3s ease;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--first-color);
+        }
+    }
+}
+
+.modal-content {
+    strong,
+    b {
+        color: var(--first-color); // Make bold text grey
+    }
+}
+
+.modal-content {
+    padding: 20px;
+    line-height: 1.6; // Better line spacing for readability
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 10px; // Space between paragraphs
+    }
+
+    ul {
+        margin: 15px 0;
+        padding-left: 20px; // Indentation for bullets
+        list-style-type: disc; // Default bullet styling
+
+        li {
+            font-size: 14px;
+            margin-bottom: 8px; // Space between bullet points
+        }
+    }
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .projects {
+        padding: 0.5rem;
+    }
+
+    .masonry-with-columns {
+        gap: 0.5rem;
+
+        .card {
+            padding: 1rem;
+            font-size: 0.875rem;
+        }
+    }
+
+    .modal {
+        width: 35%;
+        max-height: 85vh;
+        padding: 1rem;
+        overflow-y: auto; /* Allow scrolling within modal */
+        top: 25%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+    }
+
+    .modal img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .modal h3 {
+        font-size: 1rem;
+    }
+
+    .modal p {
+        font-size: 1rem;
+    }
+
+    .close-icon {
+        font-size: 1.25rem;
+    }
+}
+
