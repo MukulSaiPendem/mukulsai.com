@@ -239,6 +239,25 @@ const projects = [
         websiteLink: null,
         imageUrl: null
     }
+    ,
+    {
+        id: 10,
+        title: "Optimized Lane Detection",
+        description: `
+- **Advanced Lane Detection**: Enhance autonomous driving with precise, real-time lane detection.
+- **GPU Acceleration**: Utilize Distributed Data Parallel (DDP) across 4 GPUs to boost training speed by 2.39x.
+- **Efficient Training**: Implement mixed precision training, reducing training time by 18.7% without losing accuracy.
+- **Scalable Solutions**: Optimized for multi-CPU and multi-GPU setups, ensuring robust performance across various hardware configurations.
+- **High-Performance Computing**: Powered by PyTorch and CUDA, tailored for high-speed, large-scale deployment.
+
+        `,
+        technologies: ["HPC", "PyTorch", "CUDA", "Python", "GPU Computing", "DDP", "Mixed Precision", "SBatch", "Parallel Computing"],
+        githubLink: "https://github.com/MukulSaiPendem/Lane_Detection.git",
+        websiteLink: null,
+        imageUrl: null
+    }
+    
+
     
 ];
 
@@ -337,4 +356,54 @@ document.querySelectorAll(".card").forEach((card) => {
         openModalById(projectId); // Call the function with the project ID
     });
 });
+
+const baseUrl = "https://email-sender-dun.vercel.app/api"; 
+// Select the form and button elements
+const contactForm = document.querySelector(".contact__form");
+const sendButton = document.querySelector(".contact__button");
+
+// Add an event listener to the button
+sendButton.addEventListener("click", async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Collect form data
+    const formData = {
+        name: contactForm.querySelector("input[placeholder='Name']").value,
+        email: contactForm.querySelector("input[placeholder='Email']").value,
+        message: contactForm.querySelector("textarea").value,
+    };
+
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.message) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    // Dynamically construct the backend URL
+    const baseUrl = window.location.origin; 
+    const sendEmailEndpoint = "https://email-sender-dun.vercel.app/api/send-email";
+
+    try {
+        // Send the form data to the backend server
+        const response = await fetch(sendEmailEndpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        });
+
+        // Handle response
+        if (response.ok) {
+            alert("Email sent successfully!");
+            contactForm.reset(); // Clear the form
+        } else {
+            alert("Failed to send email. Please try again later.");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while sending the email.");
+    }
+});
+
 
