@@ -88,7 +88,7 @@ document.querySelectorAll('.company-item').forEach(item => {
 // Define project details in a JavaScript array with Markdown descriptions
 const projects = [
     {
-        id: 1,
+        id: 5,
         title: "E-Learning Web Application",
         description: `
 - **Responsive** online learning platform for **students** and **professors**
@@ -104,7 +104,7 @@ const projects = [
     }
     ,
     {
-        id: 2,
+        id: 6,
         title: "Real-time Face Mask Detection",
         description: `
 - Utilized **MobileNetV2** for training a robust face mask detection model.
@@ -119,7 +119,7 @@ const projects = [
     }
     ,
     {
-        id: 3,
+        id: 1,
         title: "Cloud-Based Web Application",
         description: `
 
@@ -138,7 +138,7 @@ const projects = [
     }
     ,
     {
-        id: 4,
+        id: 2,
         title: "Calderon Bulldogs",
         description: `
 - **CMS-Driven Platform**: Transformed a static business website into a dynamic application with a robust **Content Management System (CMS)**.
@@ -150,13 +150,13 @@ const projects = [
         `,
         technologies: [ "Next.js", "TypeScript","AWS S3", "Tailwind CSS", "PostgreSQL", "Prisma", "tRPC" ],
         githubLink: "https://github.com/altitud-initiative/calderon-bulldogs",
-        websiteLink: null,
+        websiteLink: "https://www.calderonbulldogs.com/",
         imageUrl: null
     }
     
     ,
     {
-        id: 5,
+        id: 7,
         title: "Cyber Unbound Platform Development",
         description: `
 - **Secure Hiring Platform**: Built a platform for hiring cybersecurity professionals, emphasizing data integrity and security.
@@ -173,7 +173,7 @@ const projects = [
     }
     ,
     {
-        id: 6,
+        id: 8,
         title: "SIM Activation Application",
         description: `
 - **Efficient SIM Activation**: Engineered a web application that reduced SIM activation time by **40%**, streamlining the activation process for customers.
@@ -190,7 +190,7 @@ const projects = [
     }
     ,
     {
-        id: 7,
+        id: 9,
         title: "Task Manager Application",
         description: `
     
@@ -207,7 +207,7 @@ const projects = [
     }
     ,
     {
-        id: 8,
+        id: 10,
         title: "Job Search GPT",
         description: `
 
@@ -224,7 +224,7 @@ const projects = [
     }    
     ,
     {
-        id: 9,
+        id: 3,
         title: "Tee Graphic Designer",
         description: `
 - **Custom T-Shirt Designer**: Upload images, add text, and create unique t-shirt designs.
@@ -236,12 +236,12 @@ const projects = [
         `,
         technologies: [ "Vite.js", "Node.js","OpenAI", "Dall-e","Three.js", "Tailwind CSS" ],
         githubLink: "https://github.com/MukulSaiPendem/tee-designer",
-        websiteLink: null,
+        websiteLink: "https://tee-designer.mukulsai.com/",
         imageUrl: null
     }
     ,
     {
-        id: 10,
+        id: 4,
         title: "Optimized Lane Detection",
         description: `
 - **Advanced Lane Detection**: Enhance autonomous driving with precise, real-time lane detection.
